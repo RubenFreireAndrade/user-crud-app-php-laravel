@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("header.html");
+    //include("header.html");
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,13 @@
     <title>Document</title>
 </head>
 <body>
+    @csrf
     <h1>Welcome to our website</h1>
-    <a href="login.php">LOGIN</a>
+    <a href="register">Create Account</a>
+    <a href="login">Login</a>
 </body>
 </html>
 
 <?php
-    include("footer.html");
+    //include("footer.html");
 ?>
