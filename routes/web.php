@@ -19,13 +19,11 @@ Route::get('/', function () {
     //return view('welcome');
 });
 
-Route::get('register', [UserController::class, 'registerPage']);
+Route::get('/register', [UserController::class, 'registerPage']);
+
+Route::get('/login', [UserController::class, 'loginPage']);
 
 //Route::post('api/register', [UserController::class, 'apiRegister']);
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
 // FOR TESTING
-Route::post('register', [UserController::class, 'registerUser']);
+Route::post('/register', [UserController::class, 'registerUser']);

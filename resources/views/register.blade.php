@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
     //include("header.html");
 ?>
 
@@ -11,11 +11,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="register" method="POST">
+    <form action="/register" method="POST">
         @csrf
-        <input type="text" name="username" placeholder="Type Your Name">
-        <input type="password" name="password" placeholder="Type Your Password">
+        <input type="text" name="name" placeholder="Type Your Name">
         <input type="email" name="email" placeholder="Type Your Email">
+        <input type="password" name="password" placeholder="Type Your Password">
         <button>CREATE</button>
     </form>
 </body>
