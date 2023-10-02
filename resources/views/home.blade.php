@@ -13,9 +13,14 @@
 </head>
 <body>
     @csrf
-    <h1>Welcome to our website</h1>
-    <a href="/register">Create Account</a>
-    <a href="/login">Login</a>
+    
+    <div class="p-4 flex flex-row justify-evenly border-solid border border-black bg-blue-300">
+        <div class="font-bold underline border-solid border border-black">Welcome to our website</div>
+        <div>
+            <a href="/register" class="p-2 border-solid border border-black hover:bg-green-300">Create Account</a>
+            <a href="/login" class="p-2 border-solid border border-black hover:bg-green-300">Login</a>
+        </div>
+    </div>
 
     {{-- <form action="/register" method="POST">
         @csrf
