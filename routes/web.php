@@ -16,14 +16,12 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home');
-    //return view('welcome');
 });
 
 Route::get('/register', [UserController::class, 'registerPage']);
-
 Route::get('/login', [UserController::class, 'loginPage']);
 
 //Route::post('api/register', [UserController::class, 'apiRegister']);
-
-// FOR TESTING
-Route::post('/register', [UserController::class, 'registerUser']);
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/logout', [UserController::class, 'logout']);
