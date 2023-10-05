@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/register', [UserController::class, 'registerPage']);
 Route::get('/login', [UserController::class, 'loginPage']);
+Route::get('/dashboard', [UserController::class, 'dashboard']);
 
 //Route::post('api/register', [UserController::class, 'apiRegister']);
 Route::post('/register', [UserController::class, 'register']);

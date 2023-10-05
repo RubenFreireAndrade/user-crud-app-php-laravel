@@ -40,4 +40,25 @@ class UserController extends Controller
         auth()->logout();
         return redirect('/');
     }
+
+    public function login(Request $request) {
+        $incomingData = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt($incomingData)) {
+            $request->session()->regenerate();
+
+            header('refresh: 2; url=/dashboard');
+            return 'Successfully logged in!';
+            //redirect('/dashboard');
+        }
+
+        return redirect('/');
+    }
+
+    public function dashboard() {
+        return view('/dashboard');
+    }
 }
