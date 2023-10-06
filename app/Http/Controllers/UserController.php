@@ -52,13 +52,20 @@ class UserController extends Controller
 
             header('refresh: 2; url=/dashboard');
             return 'Successfully logged in!';
-            //redirect('/dashboard');
         }
 
         return redirect('/');
     }
 
     public function dashboard() {
-        return view('/dashboard');
+        // Might use this later
+        //$posts = [];
+        // if (auth()->check()) {
+        //     $posts = auth()->user()->displayPosts()->latest()->get();
+        // }
+        
+        // displayPosts() shows its undefined but it works. intelisense not working properly.
+        $posts = auth()->user()->displayPosts()->latest()->get();
+        return view('/dashboard', ['posts' => $posts]);
     }
 }
