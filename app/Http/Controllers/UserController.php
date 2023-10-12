@@ -12,21 +12,21 @@ class UserController extends Controller
         return view('/register');
     }
 
-    public function register(Request $request) {
-        $incomingData = $request->validate([
-            'name' => ['required', Rule::unique('users', 'name')],
-            'email' => ['required', Rule::unique('users', 'email')],
-            'password' => 'required'
-        ]);
+    // public function register(Request $request) {
+    //     $incomingData = $request->validate([
+    //         'name' => ['required', Rule::unique('users', 'name')],
+    //         'email' => ['required', Rule::unique('users', 'email')],
+    //         'password' => 'required'
+    //     ]);
         
-        $incomingData['password'] = bcrypt($incomingData['password']);
+    //     $incomingData['password'] = bcrypt($incomingData['password']);
 
-        $newUser = User::create($incomingData);
-        auth()->login($newUser);
+    //     $newUser = User::create($incomingData);
+    //     auth()->login($newUser);
         
-        header('refresh: 2; url=/');
-        return 'Successfully registered user!';
-    }
+    //     header('refresh: 2; url=/');
+    //     return 'Successfully registered user!';
+    // }
 
     public function loginPage() {
         return view('/login');
@@ -37,21 +37,21 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function login(Request $request) {
-        $incomingData = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+    // public function login(Request $request) {
+    //     $incomingData = $request->validate([
+    //         'email' => 'required',
+    //         'password' => 'required'
+    //     ]);
 
-        if (auth()->attempt($incomingData)) {
-            $request->session()->regenerate();
+    //     if (auth()->attempt($incomingData)) {
+    //         $request->session()->regenerate();
 
-            header('refresh: 2; url=/dashboard');
-            return 'Successfully logged in!';
-        }
+    //         header('refresh: 2; url=/dashboard');
+    //         return 'Successfully logged in!';
+    //     }
 
-        return redirect('/');
-    }
+    //     return redirect('/');
+    // }
 
     public function dashboard() {
         // Might use this later
