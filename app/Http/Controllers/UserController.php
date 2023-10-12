@@ -20,16 +20,12 @@ class UserController extends Controller
         ]);
         
         $incomingData['password'] = bcrypt($incomingData['password']);
+
+        $newUser = User::create($incomingData);
+        auth()->login($newUser);
         
-        try {
-            $newUser = User::create($incomingData);
-            auth()->login($newUser);
-            
-            header('refresh: 2; url=/');
-            return 'Successfully registered user!';
-        } catch (QueryException $e) {
-            $e->getMessage();
-        }
+        header('refresh: 2; url=/');
+        return 'Successfully registered user!';
     }
 
     public function loginPage() {
